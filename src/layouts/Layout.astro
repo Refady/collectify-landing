@@ -1,4 +1,5 @@
 ---
+import Navigation from "@/components/Navigation";
 import "@/styles/global.css";
 ---
 
@@ -19,8 +20,9 @@ import "@/styles/global.css";
       rel="stylesheet"
     />
   </head>
-  <body class="bg-background text-text font-display">
-    <div class="w-full max-w-[1200px] mx-auto px-[20px]">
+  <body class="bg-background text-text font-display dark">
+    <div class="w-full max-w-[1200px] mx-auto px-[30px]">
+      <Navigation client:only />
       <slot />
     </div>
   </body>
