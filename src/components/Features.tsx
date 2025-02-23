@@ -1,11 +1,15 @@
-import { features } from "@/utils/features.tsx";
 import FeatureItem from "@/components/Feature.tsx";
+import type { CollectionEntry } from "astro:content";
 
-const Features = () => {
+interface Props {
+  features: CollectionEntry<"features">[];
+}
+
+const Features = ({ features }) => {
   return (
     <div className="flex flex-col gap-[50px] my-[150px]" id="features">
       {
-        features.map((feature) => (
+        features.map(({ data: feature }) => (
           <FeatureItem key={feature.title} feature={feature} />
         ))
       }

@@ -4,11 +4,15 @@ import About from "@/components/About";
 import Faq from "@/components/Faq";
 import Layout from "../layouts/Layout.astro";
 import Features from "@/components/Features";
+import { getCollection } from "astro:content";
+
+const faqs = await getCollection("faqs");
+const features = await getCollection("features");
 ---
 
 <Layout>
   <Header />
   <About />
-  <Features />
-  <Faq client:only />
+  <Features features={features} />
+  <Faq faqs={faqs} client:only />
 </Layout>
