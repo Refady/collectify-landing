@@ -122,3 +122,18 @@
     background-clip: text;
     text-fill-color: transparent;
 }
+
+.about__title::after {
+    content: '';
+    display: block;
+    width: 40%;
+    position: absolute;
+    bottom: -20px;
+    height: 7px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background: var(--color-header-gradient);
+    left: 50%;
+    transform: translateX(-50%);
+}
