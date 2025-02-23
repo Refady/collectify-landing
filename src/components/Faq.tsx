@@ -25,7 +25,7 @@ const faqs = [
 
 const Faq = () => {
   return (
-    <div className="my-[150px] flex flex-col items-center justify-center">
+    <div className="my-[150px] flex flex-col items-center justify-center faq relative" id="faq">
       <h2 className="text-[35px] italic font-bold text-center mb-[50px]">Najczęściej zadawane
         pytania</h2>
 

@@ -1,18 +1,18 @@
 export const navitems = [
   {
     title: "O Collectify",
-    href: "/#about",
+    href: "/#about"
   },
   {
     title: "Funkcje",
-    href: "/#features",
+    href: "/#features"
   },
   {
     title: "FAQ",
-    href: "/#features",
+    href: "/#faq"
   },
   {
     title: "Kontakt",
-    href: "/#contact",
-  },
+    href: "/#contact"
+  }
 ];
