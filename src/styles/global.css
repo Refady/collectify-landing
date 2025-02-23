@@ -48,7 +48,7 @@
 }
 
 .dark {
-    --background: hsl(240 10% 3.9%);
+    --background: #050910;
     --foreground: hsl(0 0% 98%);
     --card: hsl(240 10% 3.9%);
     --card-foreground: hsl(0 0% 98%);
@@ -158,4 +158,23 @@
     left: 50%;
     z-index: -1;
     transform: translateX(-50%);
+}
+
+.feature:nth-of-type(odd) > .feature__image::after {
+    @apply max-md:hidden md:block;
+    content: url("../assets/images/image-shadow.svg");
+    position: absolute;
+    z-index: 1;
+    top: -50%;
+    right: -30%;
+}
+
+.feature:nth-of-type(even) > .feature__image::after {
+    @apply max-md:hidden md:block;
+    content: url("../assets/images/image-shadow.svg");
+    position: absolute;
+    z-index: 1;
+    top: -50%;
+    left: -30%;
+    transform: scaleX(-1);
 }
