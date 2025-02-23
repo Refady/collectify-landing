@@ -178,3 +178,14 @@
     left: -30%;
     transform: scaleX(-1);
 }
+
+.header__image::before {
+    content: url("../assets/images/hero-background.svg");
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: -100%;
+    transform: translateY(-50%);
+    object-fit: cover;
+    object-position: center;
+}

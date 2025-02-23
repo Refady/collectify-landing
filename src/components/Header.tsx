@@ -20,7 +20,7 @@ const Header = () => {
         </p>
 
         <div className="flex flex-col gap-[15px] mt-[30px] md:mt-[60px] items-center md:items-start">
-          <a href="https://app.collectify.tech" className="block">
+          <a href="/app/" className="block">
             <Button>
               <LogIn /> Załóż darmowe konto
             </Button>
@@ -29,9 +29,9 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="relative flex justify-center items-center overflow-visible z-50">
+      <div className="relative flex justify-center items-center header__image -z-10">
         <img
-          className="header__image z-50"
+          className="z-50"
           src={heroPhone.src}
           alt="Telefon z aplikacją Collectify na ekranie"
         />
