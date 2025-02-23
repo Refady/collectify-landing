@@ -46,3 +46,21 @@ export const NavigationQuery = `
     }
   }
 `;
+
+export const AuthorsQuery = `
+  query Authors($locales: [Locale!] = pl) {
+    authors(locales: $locales) {
+      id
+      fullName
+      nickname
+      roles
+      slug
+      avatar {
+        url
+        width
+        height
+      }
+      portfolio
+    }
+  }
+`;

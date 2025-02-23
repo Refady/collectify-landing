@@ -5,14 +5,17 @@ import Faq from "@/components/Faq";
 import Layout from "../layouts/Layout.astro";
 import Features from "@/components/Features";
 import { getCollection } from "astro:content";
+import Authors from "@/components/Authors";
 
 const faqs = await getCollection("faqs");
 const features = await getCollection("features");
+const authors = await getCollection("authors");
 ---
 
 <Layout>
   <Header />
   <About />
   <Features features={features} />
+  <Authors authors={authors} />
   <Faq faqs={faqs} client:only />
 </Layout>

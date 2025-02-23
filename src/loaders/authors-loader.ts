@@ -1,14 +1,14 @@
-import { FeaturesQuery } from "@/utils/queries.ts";
-import type { Feature } from "@/types.ts";
+import type { Author } from "@/types.ts";
+import { AuthorsQuery } from "@/utils/queries.ts";
 
-const featuresLoader = async () => {
+const authorsLoader = async () => {
   const query = {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      query: FeaturesQuery,
+      query: AuthorsQuery,
       variables: {
         locales: ["pl"]
       }
@@ -17,9 +17,9 @@ const featuresLoader = async () => {
 
   const res = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
   const json = await res.json();
-  const faqs: Feature[] = json.data.features;
+  const authors: Author[] = json.data.authors;
 
-  return faqs;
+  return authors;
 };
 
-export default featuresLoader;
+export default authorsLoader;

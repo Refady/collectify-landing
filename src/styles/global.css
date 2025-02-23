@@ -189,3 +189,19 @@
     object-fit: cover;
     object-position: center;
 }
+
+.authors__nickname {
+    background: linear-gradient(90deg, #438CE2 0%, #2D588B 52.61%, #6958D0 98.86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.authors__title {
+    background: linear-gradient(90deg, #438CE2 0%, #2D588B 52.61%, #6958D0 98.86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}

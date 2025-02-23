@@ -2,7 +2,7 @@ export interface Author {
   id: string;
   fullName: string;
   nickname?: string;
-  role: string;
+  roles: string[];
   slug: string;
   avatar: {
     url: string;
@@ -19,7 +19,7 @@ export interface FAQItem {
   priority: number;
 }
 
-export interface FeatureQueryResult {
+export interface Feature {
   id: string;
   title: string;
   description: string;
