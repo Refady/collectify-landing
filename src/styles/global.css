@@ -123,12 +123,22 @@
     text-fill-color: transparent;
 }
 
+.about::before {
+    content: url("../assets/images/about-gradient.svg");
+    display: block;
+    position: absolute;
+    top: -55%;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+}
+
 .about__title::after {
     content: '';
     display: block;
     width: 40%;
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     height: 7px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
