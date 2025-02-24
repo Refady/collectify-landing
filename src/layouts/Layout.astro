@@ -26,7 +26,7 @@ const footerNavigations = navigations.filter(({ data: nav }) => nav.showInFooter
     rel="stylesheet"
   />
 </head>
-<body class="bg-background text-text font-display dark overflow-x-hidden">
+<body class="bg-background text-text font-display dark overflow-x-hidden min-h-screen grid grid-rows-[1fr_auto]">
 <div class="w-full max-w-[1200px] mx-auto px-[30px] max-[1200px]:overflow-x-hidden">
   <Navigation navItems={mainNavigation?.data.items} client:only />
   <slot />
