@@ -7,7 +7,7 @@ interface Props {
 
 const Authors = ({ authors }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center" id="authors">
       <h2 className="text-center text-[35px] md:text-[42px] font-bold italic authors__title">Refady Software</h2>
       <p className="text-center text-[20px] font-medium text-gray mb-[100px]">Twórcy Collectify</p>
 
