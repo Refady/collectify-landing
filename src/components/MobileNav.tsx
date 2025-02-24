@@ -1,15 +1,19 @@
 import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { navitems } from "@/utils/navitems";
 import { LogIn, Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import type { NavItem } from "@/types.ts";
 
-const MobileNav = () => {
+interface Props {
+  items: NavItem[];
+}
+
+const MobileNav: React.FC<Props> = ({ items }) => {
   return (
     <>
       <Sheet>
@@ -21,9 +25,9 @@ const MobileNav = () => {
         <SheetContent className="flex justify-center items-center">
           <NavigationMenu className="w-full">
             <NavigationMenuList className="flex flex-col items-center justify-center">
-              {navitems.map((item) => (
+              {items.map((item) => (
                 <NavigationMenuItem key={item.title}>
-                  <a href={item.href} className="font-medium">
+                  <a href={item.url} className="font-medium" target={item.targetBlank ? "_blank" : "_self"}>
                     <NavigationMenuLink>{item.title}</NavigationMenuLink>
                   </a>
                 </NavigationMenuItem>
@@ -31,7 +35,7 @@ const MobileNav = () => {
 
               <NavigationMenuItem>
                 <a
-                  href="https://app.collectify.tech/"
+                  href="/app/"
                   target="_blank"
                   className="font-medium block"
                 >

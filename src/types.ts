@@ -36,12 +36,14 @@ export interface Feature {
   priority: number;
 }
 
+export interface NavItem {
+  title: string;
+  url: string;
+  targetBlank: boolean;
+}
+
 export interface Navigation {
   id: string;
   navigationId: string;
-  items: {
-    title: string;
-    url: string;
-    targetBlank: boolean;
-  }[];
+  items: NavItem[];
 }

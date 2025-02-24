@@ -35,13 +35,11 @@ export const NavigationQuery = `
     navigations(locales: $locales) {
       id
       navigationId
-      items(locales: $locales) {
-        ... on NavigationItem {
-          id
-          title
-          targetBlank
-          url
-        }
+      items {
+        id
+        title
+        url
+        targetBlank
       }
     }
   }

@@ -1,20 +1,24 @@
 import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList
 } from "@/components/ui/navigation-menu";
-import { navitems } from "@/utils/navitems";
 import { LogIn } from "lucide-react";
 import { Button } from "./ui/button";
+import type { NavItem } from "@/types.ts";
 
-const DesktopNav = () => {
+interface Props {
+  items: NavItem[];
+}
+
+const DesktopNav: React.FC<Props> = ({ items }) => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {navitems.map((item) => (
+        {items.map((item) => (
           <NavigationMenuItem key={item.title}>
-            <a href={item.href} className="font-medium">
+            <a href={item.url} className="font-medium" target={item.targetBlank ? "_blank" : "_self"}>
               <NavigationMenuLink>{item.title}</NavigationMenuLink>
             </a>
           </NavigationMenuItem>
@@ -22,7 +26,7 @@ const DesktopNav = () => {
 
         <NavigationMenuItem>
           <a
-            href="https://app.collectify.tech/"
+            href="/app/"
             target="_blank"
             className="font-medium ml-[15px] block"
           >

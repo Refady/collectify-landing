@@ -1,27 +1,13 @@
 import logo from "@/assets/images/full-logo.svg";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
+import type { NavItem } from "@/types.ts";
 
-const navitems = [
-  {
-    title: "O Collectify",
-    href: "/#about",
-  },
-  {
-    title: "Funkcje",
-    href: "/#features",
-  },
-  {
-    title: "FAQ",
-    href: "/#features",
-  },
-  {
-    title: "Kontakt",
-    href: "/#contact",
-  },
-];
+interface Props {
+  navItems: NavItem[];
+}
 
-const Navigation = () => {
+const Navigation = ({ navItems }) => {
   return (
     <div className="py-[30px] flex justify-between items-center">
       <a href="/">
@@ -29,11 +15,11 @@ const Navigation = () => {
       </a>
 
       <div className="hidden md:block">
-        <DesktopNav />
+        <DesktopNav items={navItems} />
       </div>
 
       <div className="md:hidden">
-        <MobileNav />
+        <MobileNav items={navItems} />
       </div>
     </div>
   );

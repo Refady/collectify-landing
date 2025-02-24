@@ -1,6 +1,10 @@
 ---
 import Navigation from "@/components/Navigation";
 import "../styles/global.css";
+import { getCollection } from "astro:content";
+
+const navigations = await getCollection("navigations");
+const mainNavigation = navigations.find(({ data: nav }) => nav.navigationId === "main");
 ---
 
 <!doctype html>
@@ -22,7 +26,7 @@ import "../styles/global.css";
 </head>
 <body class="bg-background text-text font-display dark overflow-x-hidden">
 <div class="w-full max-w-[1200px] mx-auto px-[30px] max-[1200px]:overflow-x-hidden">
-  <Navigation client:only />
+  <Navigation navItems={mainNavigation?.data.items} client:only />
   <slot />
 </div>
 </body>
