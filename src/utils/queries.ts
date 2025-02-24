@@ -35,12 +35,14 @@ export const NavigationQuery = `
     navigations(locales: $locales) {
       id
       navigationId
+      title
       items {
         id
         title
         url
         targetBlank
       }
+      showInFooter
     }
   }
 `;

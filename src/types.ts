@@ -44,6 +44,8 @@ export interface NavItem {
 
 export interface Navigation {
   id: string;
+  title: string;
   navigationId: string;
   items: NavItem[];
+  showInFooter: boolean;
 }
