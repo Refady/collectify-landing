@@ -3,10 +3,30 @@ import Navigation from "@/components/Navigation";
 import "../styles/global.css";
 import { getCollection } from "astro:content";
 import Footer from "@/components/Footer";
+import { SEOData } from "../types";
 
 const navigations = await getCollection("navigations");
 const mainNavigation = navigations.find(({ data: nav }) => nav.navigationId === "main");
 const footerNavigations = navigations.filter(({ data: nav }) => nav.showInFooter === true);
+
+const { seo } = Astro.props;
+
+const defaultSEO: SEOData = {
+  title: "Collectify - Asystent Klasowego Skarbnika",
+  description: "Collectify to Twoje rozwiązanie do perfekcyjnej organizacji zbiórek gotówkowych w klasie! Ta aplikacja została stworzona z myślą o klasowych skarbnikach, którzy chcą uporządkować proces zbierania pieniędzy od wszystkich uczniów.",
+  keywords: "collectify, skarbnik, klasowy, zbiórka, gotówka, aplikacja, organizacja, szkoła",
+  url: "https://collectify.tech/",
+  author: "Refady Software",
+  publisher: "Refady Software",
+  image: {
+    url: "/cover.png"
+  }
+};
+
+const pageSeo = {
+  ...defaultSEO,
+  ...seo
+};
 ---
 
 <!doctype html>
@@ -14,9 +34,30 @@ const footerNavigations = navigations.filter(({ data: nav }) => nav.showInFooter
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
-  <title>Collectify - Asystent Klasowego Skarbnika</title>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{pageSeo.title}</title>
+  <meta name="description" content={pageSeo.description} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageSeo.url} />
+  <meta property="og:title" content={pageSeo.title} />
+  <meta property="og:description" content={pageSeo.description} />
+  <meta property="og:image" content={pageSeo.image.url} />
+
+  <meta name="author" content={pageSeo.author} />
+  <meta name="publisher" content={pageSeo.publisher} />
+  <meta name="keywords" content={pageSeo.keywords} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageSeo.title} />
+  <meta name="twitter:description" content={pageSeo.description} />
+  <meta name="twitter:image" content={pageSeo.image.url} />
+
+  <link rel="canonical" href={pageSeo.url} />
+  <meta name="robots" content="index, follow" />
+
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

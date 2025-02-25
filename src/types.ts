@@ -51,14 +51,17 @@ export interface Navigation {
 }
 
 export interface SEOData {
-  title: string;
-  description: string;
-  image: {
+  title?: string;
+  description?: string;
+  image?: {
     url: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   };
-  keywords: string;
+  keywords?: string;
+  urL?: string;
+  author?: string;
+  publisher?: string;
 }
 
 export interface Page {

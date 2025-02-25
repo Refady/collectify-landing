@@ -17,9 +17,18 @@ const page = await getEntry("pages", slug);
 if (!page) {
   return Astro.rewrite("/404");
 }
+
+const seo = {
+  title: page?.data.seoOverride?.title || `${page?.data.title} | Collectify`,
+  description: page?.data?.seoOverride?.description || null,
+  keywords: page?.data?.seoOverride?.keywords || null,
+  image: page?.data?.seoOverride?.image || null,
+  author: page?.data?.creator?.fullName || null,
+  url: `https://collectify.tech/${slug}`
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <div class="py-[100px] flex flex-col items-start">
     <h1 class="text-4xl md:text-5xl font-bold mb-[100px] authors__title">{page?.data.title}</h1>
     <div set:html={marked(page?.data.content)} class="page-content" />
