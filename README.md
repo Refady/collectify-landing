@@ -1,3 +1,5 @@
+![Collectify Cover](public/cover.png)
+
 # Collectify Landing Page
 
 Simple landing page for Collectify, a web application created for the purpose of collecting and organizing money.
