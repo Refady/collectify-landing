@@ -49,3 +49,21 @@ export interface Navigation {
   items: NavItem[];
   showInFooter: boolean;
 }
+
+export interface SEOData {
+  title: string;
+  description: string;
+  image: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  keywords: string;
+}
+
+export interface Page {
+  title: string;
+  slug: string;
+  content: string;
+  seoOverride?: SEOData;
+}

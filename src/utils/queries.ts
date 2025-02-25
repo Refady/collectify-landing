@@ -64,3 +64,23 @@ export const AuthorsQuery = `
     }
   }
 `;
+
+export const PagesQuery = `
+  query Pages($locales: [Locale!] = pl) {
+    pages(locales: $locales) {
+      title
+      slug
+      content
+      seoOverride {
+        title
+        description
+         keywords
+        image {
+          url
+          width
+          height
+      }
+     }
+    }
+  }
+`;

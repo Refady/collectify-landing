@@ -3,6 +3,7 @@ import faqLoader from "@/loaders/faq-loader.ts";
 import featuresLoader from "@/loaders/features-loader.ts";
 import authorsLoader from "@/loaders/authors-loader.ts";
 import navigationsLoader from "@/loaders/navigations-loader.ts";
+import pagesLoader from "@/loaders/pages-loader.ts";
 
 const faqs = defineCollection({
   loader: faqLoader
@@ -20,4 +21,8 @@ const navigations = defineCollection({
   loader: navigationsLoader
 });
 
-export const collections = { faqs, features, authors, navigations };
+const pages = defineCollection({
+  loader: pagesLoader
+});
+
+export const collections = { faqs, features, authors, navigations, pages };
