@@ -59,7 +59,7 @@ export interface SEOData {
     height?: number;
   };
   keywords?: string;
-  urL?: string;
+  url?: string;
   author?: string;
   publisher?: string;
 }

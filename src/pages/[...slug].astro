@@ -6,8 +6,6 @@ import "@/styles/page-content.css";
 
 const { slug } = Astro.params;
 
-console.log(slug);
-
 if (!slug) {
   return Astro.rewrite("/404");
 }
@@ -22,7 +20,7 @@ const seo = {
   title: page?.data.seoOverride?.title || `${page?.data.title} | Collectify`,
   description: page?.data?.seoOverride?.description || null,
   keywords: page?.data?.seoOverride?.keywords || null,
-  image: page?.data?.seoOverride?.image || null,
+  image: page?.data?.seoOverride?.image || undefined,
   author: page?.data?.creator?.fullName || null,
   url: `https://collectify.tech/${slug}`
 };

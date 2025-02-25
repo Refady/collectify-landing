@@ -25,7 +25,11 @@ const defaultSEO: SEOData = {
 
 const pageSeo = {
   ...defaultSEO,
-  ...seo
+  ...seo,
+  image: {
+    ...defaultSEO.image,
+    ...seo?.image
+  }
 };
 ---
 
