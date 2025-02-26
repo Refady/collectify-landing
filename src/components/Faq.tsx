@@ -13,7 +13,7 @@ const Faq: React.FC<Props> = ({ faqs }) => {
 
       <Accordion type="single" collapsible className="w-full max-w-[800px]">
         {
-          faqs.map(({ data: faq }) => (
+          faqs.sort(({ data: faq1 }, { data: faq2 }) => faq2.priority - faq1.priority).map(({ data: faq }) => (
             <AccordionItem key={faq.id} value={`item-${faq.id}`}>
               <AccordionTrigger className="text-[16px]">{faq.question}</AccordionTrigger>
               <AccordionContent>
