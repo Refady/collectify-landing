@@ -1,20 +1,19 @@
 ---
-import { getEntry, render } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { marked } from "marked";
 import "@/styles/page-content.css";
 
-const { slug } = Astro.params;
-
-if (!slug) {
-  return Astro.rewrite("/404");
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map(page => ({
+    params: { slug: page.id },
+    props: { page }
+  }));
 }
 
-const page = await getEntry("pages", slug);
-
-if (!page) {
-  return Astro.rewrite("/404");
-}
+const { page } = Astro.props;
+const slug = page?.id;
 
 const seo = {
   title: page?.data.seoOverride?.title || `${page?.data.title} | Collectify`,
@@ -22,13 +21,19 @@ const seo = {
   keywords: page?.data?.seoOverride?.keywords || null,
   image: page?.data?.seoOverride?.image || undefined,
   author: page?.data?.creator?.fullName || null,
-  url: `https://collectify.tech/${slug}`
+  url: `https://collectify.cloud/${slug}`
 };
+
+const renderedContent = page?.data?.content ? marked(page.data.content) : "";
+
+if (!page?.data?.content) {
+  return Astro.rewrite('/404');
+}
 ---
 
 <Layout seo={seo}>
   <div class="py-[100px] flex flex-col items-start">
     <h1 class="text-4xl md:text-5xl font-bold mb-[100px] authors__title">{page?.data.title}</h1>
-    <div set:html={marked(page?.data.content)} class="page-content" />
+  <div set:html={renderedContent} class="page-content" />
   </div>
 </Layout>
