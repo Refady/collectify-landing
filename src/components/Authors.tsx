@@ -14,7 +14,7 @@ const Authors = ({ authors }) => {
       <div className="flex gap-[50px] flex-row items-start flex-wrap lg:items-start justify-center">
         {
           authors.map(({ data: author }) => (
-            <div className="flex flex-col items-center justify-start gap-[20px]">
+            <div className="flex flex-col items-center justify-start gap-[20px]" key={author.fullName}>
               <img src={author.avatar.url} alt={author.fullName} className="rounded-full max-w-[300px] max-h-[300px]" />
               <div className="flex flex-col items-center gap-[10px]">
                 <h3 className="font-bold text-[25px]">{author.fullName}</h3>
