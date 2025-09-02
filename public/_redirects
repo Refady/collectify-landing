@@ -1,0 +1,6 @@
+# Netlify Redirect Rules
+# Redirect /app and any nested path to external application domain.
+# Exact /app (no trailing slash)
+/app	https://app.collectify.cloud	301
+# Any sub-path under /app/*
+/app/*	https://app.collectify.cloud/:splat	301

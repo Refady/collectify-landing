@@ -1,0 +1,32 @@
+# Netlify configuration for Astro SSR deployment
+# Docs: https://docs.netlify.com/frameworks/astro/
+
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+# Astro SSR outputs functions to .netlify/functions when using the Netlify adapter.
+# The adapter handles redirects for dynamic routes automatically.
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["dist/**"]
+
+# Optional: force edge functions (commented out)
+# [[edge_functions]]
+#   path = "/"
+#   function = "entry"
+
+# Add useful security headers
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

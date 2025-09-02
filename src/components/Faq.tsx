@@ -1,29 +1,69 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { CollectionEntry } from "astro:content";
+import { useState, useId } from "react";
 
 interface Props {
-  faqs: CollectionEntry<"faqs">[],
+  faqs: CollectionEntry<"faqs">[];
 }
 
 const Faq: React.FC<Props> = ({ faqs }) => {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+  const baseId = useId();
+
+  const toggle = (id: string) => {
+    setOpenItem((curr) => (curr === id ? null : id));
+  };
+
   return (
     <div className="my-[150px] flex flex-col items-center justify-center faq relative" id="faq">
-      <h2 className="text-[35px] italic font-bold text-center mb-[50px]">Najczęściej zadawane
-        pytania</h2>
+      <h2 className="text-[35px] italic font-bold text-center mb-[50px]">
+        Najczęściej zadawane pytania
+      </h2>
 
-      <Accordion type="single" collapsible className="w-full max-w-[800px]">
-        {
-          faqs.sort(({ data: faq1 }, { data: faq2 }) => faq2.priority - faq1.priority).map(({ data: faq }) => (
-            <AccordionItem key={faq.id} value={`item-${faq.id}`}>
-              <AccordionTrigger className="text-[16px]">{faq.question}</AccordionTrigger>
-              <AccordionContent>
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))
-        }
-      </Accordion>
-
+      <div className="w-full max-w-[800px] divide-y divide-neutral-800/40 border border-neutral-800/40 rounded-xl overflow-hidden">
+        {faqs
+          .sort(({ data: a }, { data: b }) => b.priority - a.priority)
+          .map(({ data: faq }) => {
+            const id = `${baseId}-${faq.id}`;
+            const isOpen = openItem === id;
+            return (
+              <div key={id} className="group bg-neutral-900/40 backdrop-blur-sm">
+                <h3>
+                  <button
+                    type="button"
+                    onClick={() => toggle(id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`${id}-panel`}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-[16px] font-medium transition-colors hover:bg-neutral-800/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-500"
+                  >
+                    <span>{faq.question}</span>
+                    <span
+                      className={`ml-4 inline-flex h-5 w-5 items-center justify-center rounded-full border border-neutral-600 text-neutral-400 text-xs transition-transform ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={`${id}-panel`}
+                  role="region"
+                  aria-labelledby={id}
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  } overflow-hidden`}
+                >
+                  <div className="min-h-0">
+                    <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-neutral-300">
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

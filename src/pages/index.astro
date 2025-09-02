@@ -17,5 +17,5 @@ const authors = await getCollection("authors");
   <About />
   <Features features={features} />
   <Authors authors={authors} />
-  <Faq faqs={faqs} client:only />
+  <Faq faqs={faqs} client:load />
 </Layout>

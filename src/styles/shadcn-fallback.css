@@ -1,0 +1,39 @@
+/* Fallback minimal styles for shadcn/ui attribute variants until Tailwind picks them up */
+[data-slot="navigation-menu-trigger"][data-state="open"],
+[data-slot="navigation-menu-link"][data-active="true"],
+[data-slot="navigation-menu-link"][data-active="true"],
+[data-slot="navigation-menu-content"][data-state="open"] {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+[data-slot="navigation-menu-trigger"] svg,
+[data-slot="accordion-trigger"] svg {
+  transition: transform 0.3s ease;
+}
+[data-slot="accordion-trigger"][data-state="open"] > svg,
+[data-slot="navigation-menu-trigger"][data-state="open"] > svg {
+  transform: rotate(180deg);
+}
+/* Basic accordion animation */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+[data-slot="accordion-content"][data-state="open"] {
+  animation: accordion-down 0.2s ease-out;
+}
+[data-slot="accordion-content"][data-state="closed"] {
+  animation: accordion-up 0.2s ease-out;
+}
