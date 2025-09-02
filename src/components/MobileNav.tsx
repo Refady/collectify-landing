@@ -96,7 +96,7 @@ const MobileNav: React.FC<Props> = ({ items }) => {
             </nav>
 
             <div className="pt-2 border-t border-neutral-800">
-              <a href="/app/" target="_blank" className="block" onClick={close}>
+              <a href="/app/" className="block" onClick={close}>
                 <Button className="w-full justify-center cursor-pointer">
                   <LogIn className="mr-1" /> Rozpocznij
                 </Button>
