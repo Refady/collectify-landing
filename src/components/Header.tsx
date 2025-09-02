@@ -5,8 +5,7 @@ import Button from "@/components/Button";
 const Header = () => {
   return (
     <div className="md:flex md:justify-between md:items-center md:py-[50px] relative">
-      <div
-        className="py-[50px] w-full md:w-3/4 flex flex-col justify-center items-center text-center md:block md:text-left">
+      <div className="py-[50px] w-full md:w-3/4 flex flex-col justify-center items-center text-center md:block md:text-left">
         <h1 className="text-[50px] font-extrabold italic header-title md:text-[65px]">
           Asystent
           <br />
@@ -20,21 +19,19 @@ const Header = () => {
         </p>
 
         <div className="flex flex-col gap-[15px] mt-[30px] md:mt-[60px] items-center md:items-start">
-          <a href="/app/" className="block">
+          <a href="/app/sign-up" className="block">
             <Button>
               <LogIn /> Załóż darmowe konto
             </Button>
           </a>
-          <p className="text-[15px] max-w-[300px]">Dołącz do otwartych beta-testów aplikacji Collectify już teraz!</p>
+          <p className="text-[15px] max-w-[300px]">
+            Dołącz do otwartych beta-testów aplikacji Collectify już teraz!
+          </p>
         </div>
       </div>
 
       <div className="relative flex justify-center items-center header__image -z-10">
-        <img
-          className="z-50"
-          src={heroPhone.src}
-          alt="Telefon z aplikacją Collectify na ekranie"
-        />
+        <img className="z-50" src={heroPhone.src} alt="Telefon z aplikacją Collectify na ekranie" />
       </div>
     </div>
   );

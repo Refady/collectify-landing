@@ -29,7 +29,7 @@ const DesktopNav: React.FC<Props> = ({ items }) => {
         ))}
 
         <NavigationMenuItem>
-          <a href="/app/" target="_blank" className="font-medium ml-[15px] block">
+          <a href="/app/" className="font-medium ml-[15px] block">
             <Button className="cursor-pointer">
               <LogIn /> Rozpocznij
             </Button>
