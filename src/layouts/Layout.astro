@@ -1,9 +1,10 @@
 ---
 import Navigation from "@/components/Navigation";
 import "../styles/global.css";
+import "../styles/shadcn-fallback.css";
 import { getCollection } from "astro:content";
 import Footer from "@/components/Footer";
-import { SEOData } from "../types";
+import type { SEOData } from "../types";
 
 const navigations = await getCollection("navigations");
 const mainNavigation = navigations.find(({ data: nav }) => nav.navigationId === "main");
@@ -72,7 +73,7 @@ const pageSeo = {
   />
 </head>
 <body class="bg-background text-text font-display dark overflow-x-hidden min-h-screen grid grid-rows-[1fr_auto]">
-<Navigation navItems={mainNavigation?.data.items} client:only />
+<Navigation navItems={mainNavigation?.data.items} client:load />
 <div class="w-full max-w-[1200px] mx-auto px-[30px] max-[1200px]:overflow-x-hidden">
   <slot />
 </div>
