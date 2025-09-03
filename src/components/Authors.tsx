@@ -27,7 +27,7 @@ const Authors = ({ authors }) => {
                 </div>
                 {author.portfolio && (
                   <a href={author.portfolio} className="mt-[15px]" target="_blank" rel="noreferrer">
-                    <Button variant="outline" className="cursor-pointer">Portolio</Button>
+                    <Button variant="outline" className="cursor-pointer">Portfolio</Button>
                   </a>
                 )}
               </div>
