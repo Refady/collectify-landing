@@ -55,7 +55,7 @@ const MobileNav: React.FC<Props> = ({ items }) => {
       {open && (
         <>
           <div
-            className="fixed inset-0 z-40 h-screen bg-black/60 backdrop-blur-sm animate-fade-in"
+            className="fixed inset-0 z-40 h-dvh bg-black/60 backdrop-blur-sm animate-fade-in"
             onClick={close}
             aria-hidden="true"
           />
