@@ -4,3 +4,5 @@
 /app	https://app.collectify.cloud	301
 # Any sub-path under /app/*
 /app/*	https://app.collectify.cloud/:splat	301
+/discord https://discord.gg/cUarCFfDrU
+/support /discord
