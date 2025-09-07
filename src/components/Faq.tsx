@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import { ChevronDown } from "lucide-react";
 import { useState, useId } from "react";
 
 interface Props {
@@ -35,14 +36,14 @@ const Faq: React.FC<Props> = ({ faqs }) => {
                     aria-controls={`${id}-panel`}
                     className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-[16px] font-medium transition-colors hover:bg-neutral-800/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-500"
                   >
-                    <span>{faq.question}</span>
+                    <span className="w-full">{faq.question}</span>
                     <span
-                      className={`ml-4 inline-flex h-5 w-5 items-center justify-center rounded-full border border-neutral-600 text-neutral-400 text-xs transition-transform ${
-                        isOpen ? "rotate-45" : ""
+                      className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-neutral-400 text-xs transition-transform ${
+                        isOpen ? "rotate-90" : ""
                       }`}
                       aria-hidden="true"
                     >
-                      +
+                      <ChevronDown className="w-3 h-3" />
                     </span>
                   </button>
                 </h3>
